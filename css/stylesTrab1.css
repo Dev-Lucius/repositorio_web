@@ -1,0 +1,426 @@
+
+
+/* ── BARRA DE TÍTULO ─────────────────────────────────────────── */
+.page-bar {
+    background: var(--warm-white);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    padding-block: 24px;
+}
+
+.page-bar-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 6px;
+}
+
+.page-bar-title {
+    font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+    font-weight: 800;
+    color: var(--brown);
+    line-height: 1.15;
+    margin-bottom: 8px;
+}
+
+.page-bar-desc {
+    color: var(--muted);
+    font-size: 0.9rem;
+    max-width: 56ch;
+}
+
+
+/* ── LAYOUT PRINCIPAL (dois painéis lado a lado) ────────────── */
+.editor-layout {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 28px;
+    align-items: start;
+    padding-block: 32px;
+}
+
+
+/* ── PAINEL DE CONTROLE (esquerda) ──────────────────────────── */
+.control-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    /* fica fixo enquanto o cartão rola */
+    position: sticky;
+    top: calc(var(--header-h) + 16px);
+    max-height: calc(100vh - var(--header-h) - 48px);
+    overflow-y: auto;
+    padding-right: 4px;
+
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-color) transparent;
+}
+
+.panel-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--brown);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--rust);
+}
+
+/* ── Fieldsets (grupos de controle) ──────────────────────────── */
+fieldset.ctrl-group {
+    border: 1.5px solid rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    padding: 16px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+fieldset.ctrl-group legend {
+    padding-inline: 8px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--brown);
+    letter-spacing: 0.03em;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* ── Labels e inputs ─────────────────────────────────────────── */
+.control-panel label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--brown);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4px;
+}
+
+.control-panel input[type="text"],
+.control-panel input[type="url"],
+.control-panel input[type="number"],
+.control-panel select {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1.5px solid rgba(0, 0, 0, 0.14);
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem;
+    color: var(--charcoal);
+    background: var(--cream);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.control-panel input[type="text"]:focus,
+.control-panel input[type="url"]:focus,
+.control-panel input[type="number"]:focus,
+.control-panel select:focus {
+    outline: none;
+    border-color: var(--rust);
+    box-shadow: 0 0 0 3px rgba(199, 75, 30, 0.12);
+}
+
+/* Select: ícone de seta */
+.control-panel select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' stroke='%238a7f75' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    padding-right: 28px;
+}
+
+/* Color picker */
+.control-panel input[type="color"] {
+    width: 100%;
+    height: 38px;
+    padding: 3px;
+    border: 1.5px solid rgba(0, 0, 0, 0.14);
+    border-radius: 8px;
+    cursor: pointer;
+    background: white;
+    transition: border-color 0.2s;
+}
+
+.control-panel input[type="color"]:focus {
+    outline: none;
+    border-color: var(--rust);
+}
+
+/* Range */
+.control-panel input[type="range"] {
+    width: 100%;
+    accent-color: var(--rust);
+    cursor: pointer;
+}
+
+.control-panel input[type="range"]:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.control-panel input[type="color"]:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* Valor ao lado do range */
+.range-val {
+    font-weight: 700;
+    font-size: 0.78rem;
+    color: var(--rust);
+    min-width: 36px;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
+/* Linha com dois campos lado a lado */
+.row-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* Checkboxes */
+.check-row {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.check-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.82rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+.check-label input[type="checkbox"] {
+    accent-color: var(--rust);
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+}
+
+/* Dica de campo */
+.field-hint {
+    font-size: 0.75rem;
+    color: var(--muted);
+    font-style: italic;
+    line-height: 1.4;
+    margin-top: -4px;
+}
+
+/* Dica de caracteres */
+.char-hint {
+    font-size: 0.73rem;
+    font-weight: 400;
+    color: var(--muted);
+}
+
+/* Grupo de botões lado a lado */
+.btn-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+/* Campo com input inválido */
+.invalid {
+    border-color: var(--rust) !important;
+    box-shadow: 0 0 0 3px rgba(199, 75, 30, 0.18) !important;
+    animation: shake 0.3s ease;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25%       { transform: translateX(-5px); }
+    75%       { transform: translateX(5px); }
+}
+
+/* Bloco oculto (gradiente) */
+.hidden {
+    display: none;
+}
+
+
+/* ── BOTÕES ──────────────────────────────────────────────────── */
+.btn-primary,
+.btn-secondary,
+.btn-danger,
+.btn-reset {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    width: 100%;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary {
+    background: var(--rust);
+    color: #fff;
+}
+.btn-primary:hover  { background: var(--rust-light); box-shadow: 0 4px 12px rgba(199,75,30,.3); }
+.btn-primary:active { transform: scale(0.97); }
+
+.btn-secondary {
+    background: var(--brown);
+    color: #fff;
+}
+.btn-secondary:hover  { background: #5a4535; box-shadow: 0 4px 12px rgba(61,46,34,.3); }
+.btn-secondary:active { transform: scale(0.97); }
+
+.btn-danger {
+    background: #c0392b;
+    color: #fff;
+}
+.btn-danger:hover  { background: #e74c3c; box-shadow: 0 4px 12px rgba(192,57,43,.3); }
+.btn-danger:active { transform: scale(0.97); }
+
+.btn-reset {
+    background: transparent;
+    color: var(--muted);
+    border: 1.5px solid rgba(0,0,0,0.12);
+    font-size: 0.8rem;
+}
+.btn-reset:hover  { border-color: var(--rust); color: var(--rust); }
+
+
+/* ── PREVIEW (direita) ───────────────────────────────────────── */
+.preview-col {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.preview-label {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--brown);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.preview-wrap {
+    background: #ddd8d0;
+    border-radius: 16px;
+    padding: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 520px;
+    box-shadow: inset 0 2px 12px rgba(0,0,0,0.1);
+}
+
+/* O cartão em si */
+#card-canvas {
+    width: 340px;
+    min-height: 460px;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 14px 40px rgba(0,0,0,0.2), 0 4px 10px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow: hidden;
+    transition: background 0.3s ease, border 0.25s ease;
+    position: relative;
+}
+
+/* Elementos dentro do cartão */
+.card-element {
+    cursor: pointer;
+    border-radius: 4px;
+    transition: outline 0.15s ease;
+    outline: 2px solid transparent;
+}
+
+.card-element:hover {
+    outline: 2px dashed rgba(199, 75, 30, 0.4);
+}
+
+/* Elemento selecionado */
+.card-element.selected {
+    outline: 2px solid var(--rust);
+    box-shadow: 0 0 0 4px rgba(199, 75, 30, 0.12);
+}
+
+.card-img-wrap img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Contador de elementos */
+.el-count {
+    font-size: 0.82rem;
+    color: var(--muted);
+    text-align: right;
+}
+
+.el-count strong {
+    color: var(--rust);
+}
+
+
+/* ── RESPONSIVO ──────────────────────────────────────────────── */
+@media (max-width: 860px) {
+    .editor-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .control-panel {
+        position: static;
+        max-height: none;
+        overflow-y: visible;
+    }
+
+    .preview-wrap {
+        min-height: 420px;
+        padding: 20px;
+    }
+
+    #card-canvas {
+        width: 100%;
+        max-width: 340px;
+    }
+}
+
+@media (max-width: 480px) {
+    .row-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .btn-group {
+        grid-template-columns: 1fr;
+    }
+
+    .preview-wrap {
+        padding: 12px;
+    }
+}

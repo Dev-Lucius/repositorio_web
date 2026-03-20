@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO -->
+    <meta name="description" content="Portfólio da disciplina de Interface Web com projetos em HTML, CSS e JavaScript.">
+
+    <title>Portfólio de Interface Web | 2026</title>
+
+    <!-- Font Awesome 6 (versão 7 não existe no cdnjs) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- CSS (caminhos relativos, sem barra inicial) -->
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+
+    <!-- HEADER / NAVBAR -->
+    
+    <header class="site-header">
+        <div class="container">
+            <a href="#" class="logo">
+                <span class="logo-dot" aria-hidden="true"></span>
+                <i class="fa-solid fa-code" aria-hidden="true"></i>
+                <span class="logo-text">Interface Web</span>
+            </a>
+
+            <nav aria-label="Navegação principal">
+                <ul>
+                    <li><a href="#" class="active" aria-current="page">Apresentação</a></li>
+                    <li><a href="/pages/trabalho1.html">Trabalho 1</a></li>
+                    <li><a href="/pages/trabalho2.html">Trabalho 2</a></li>
+                    <li><a href="/pages/trabalho3.html">Trabalho 3</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+
+        <!-- HERO -->
+        <section class="hero-content" aria-labelledby="hero-heading">
+            <div class="container hero-inner">
+                <p class="hero-title">Portfólio • Semestre 2026</p>
+
+                <h1 id="hero-heading">
+                    Interfaces <em class="strong">Web</em>
+                </h1>
+
+                <p class="hero-desc">
+                    Este site reúne os trabalhos desenvolvidos ao longo do semestre na disciplina de
+                    <strong>Interface Web</strong>, explorando conceitos fundamentais de desenvolvimento front-end,
+                    incluindo HTML, CSS, JavaScript e práticas modernas de design.
+                </p>
+
+                <div class="hero-badges" aria-label="Tecnologias abordadas">
+                    <span class="badge">HTML5</span>
+                    <span class="badge">CSS3</span>
+                    <span class="badge">JavaScript</span>
+                    <span class="badge">Responsividade</span>
+                    <span class="badge">Acessibilidade</span>
+                </div>
+
+                <!-- scroll-hint: animação definida via SVG para não depender de keyframe externo -->
+                <div class="scroll-hint" aria-hidden="true">
+                    <svg width="14" height="22" viewBox="0 0 14 22" fill="none">
+                        <rect x=".75" y=".75" width="12.5" height="20.5" rx="6.25" stroke="currentColor" stroke-width="1.5"/>
+                        <circle cx="7" cy="7" r="2" fill="currentColor">
+                            <animate attributeName="cy" values="7;13;7" dur="1.8s" repeatCount="indefinite"/>
+                        </circle>
+                    </svg>
+                    <span>Role para baixo</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOBRE -->
+        <section class="about" aria-labelledby="about-heading">
+            <div class="container">
+
+                <header class="section-header">
+                    <p class="section-label">Sobre o Projeto</p>
+                    <h2 id="about-heading" class="title-about">O que você encontrará aqui</h2>
+                    <div class="divider" aria-hidden="true"></div>
+                </header>
+
+                <div class="about-content">
+                    <!-- <br> removido: espaçamento feito via gap/margin no CSS -->
+                    <p>
+                        Este portfólio funciona como um registro contínuo da evolução técnica ao longo da disciplina.
+                        Cada projeto aborda diferentes aspectos do desenvolvimento web, desde páginas estáticas até
+                        interatividade com JavaScript.
+                    </p>
+                    <p>
+                        A estrutura segue boas práticas modernas: semântica HTML, separação de responsabilidades
+                        (HTML, CSS e JS) e consistência visual em todas as páginas.
+                    </p>
+                </div>
+
+                <div class="img-about">
+                    <figure class="about-img">
+                        <img
+                            src="/img/web_dev_II.jpg"
+                            alt="Ilustração representando desenvolvimento web com HTML, CSS e JavaScript"
+                            loading="lazy"
+                            width="500"
+                            height="333"
+                        >
+                    </figure>
+                </div>
+
+                <!-- CARROSSEL: apenas 4 cards originais; duplicação feita via JS -->
+                <div class="cards" aria-label="Destaques do portfólio">
+                    <div class="carousel">
+                        <div class="carousel-track" id="carousel-track">
+                            <article class="card-box">
+                                <i class="fa-solid fa-sitemap" aria-hidden="true"></i>
+                                <h3>Estrutura Semântica</h3>
+                                <p>Uso correto de elementos como <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code> e <code>&lt;footer&gt;</code>.</p>
+                            </article>
+                            <article class="card-box">
+                                <i class="fa-solid fa-palette" aria-hidden="true"></i>
+                                <h3>Design Consistente</h3>
+                                <p>Identidade visual padronizada com cores, tipografia e espaçamento bem definidos.</p>
+                            </article>
+                            <article class="card-box">
+                                <i class="fa-brands fa-js" aria-hidden="true"></i>
+                                <h3>JavaScript Puro</h3>
+                                <p>Funcionalidades interativas desenvolvidas sem uso de frameworks externos.</p>
+                            </article>
+                            <article class="card-box">
+                                <i class="fa-solid fa-mobile-screen" aria-hidden="true"></i>
+                                <h3>Responsividade</h3>
+                                <p>Layout adaptável utilizando Flexbox, Grid e boas práticas de design responsivo.</p>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- TECNOLOGIAS: seção própria, irmã de .about (não mais aninhada dentro) -->
+        <section class="tech" aria-labelledby="tech-heading">
+            <div class="container">
+                <header class="section-header">
+                    <p class="section-label">Tecnologias</p>
+                    <h2 id="tech-heading">Stack utilizada</h2>
+                    <div class="divider" aria-hidden="true"></div>
+                </header>
+
+                <div class="tech-badges" role="list" aria-label="Tecnologias utilizadas">
+                    <span class="badge" role="listitem"><i class="fa-brands fa-html5" aria-hidden="true"></i> HTML5</span>
+                    <span class="badge" role="listitem"><i class="fa-brands fa-css3-alt" aria-hidden="true"></i> CSS3</span>
+                    <span class="badge" role="listitem"><i class="fa-brands fa-js" aria-hidden="true"></i> JavaScript</span>
+                    <span class="badge" role="listitem"><i class="fa-solid fa-globe" aria-hidden="true"></i> Web</span>
+                    <span class="badge" role="listitem"><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- TRABALHOS -->
+        <section class="projects" aria-labelledby="projects-heading">
+            <div class="container">
+
+                <header class="word-header">
+                    <p class="section-label">Trabalhos</p>
+                    <h2 id="projects-heading" class="title-word">Projetos do Semestre</h2>
+                    <p class="content-word">
+                        Cada trabalho é uma página independente dentro deste site. À medida que o semestre avança,
+                        novos projetos serão adicionados e os pendentes serão ativados.
+                    </p>
+                </header>
+
+                <div class="work-box-card">
+
+                    
+                    <article class="work-card">
+                        <p class="tag">Formulários • JavaScript • DOM</p>
+                        <a href="pages/trabalho1.html" class="link-work">Editor Online de Cartões</a>
+                        <p class="description">
+                            Crie cartões personalizados de aniversário, Natal e outras ocasiões.
+                            Edite cores, textos, imagens e adesivos em tempo real.
+                        </p>
+                        <span class="status done">● Concluído</span>
+                    </article>
+
+                    
+                    <article class="work-card pending-card" aria-disabled="true">
+                        <p class="tag">Em breve</p>
+                        <span class="link-work disabled">Trabalho 2</span>
+                        <p class="description">
+                            Este projeto será adicionado conforme o avanço da disciplina.
+                        </p>
+                        <span class="status pending">● Pendente</span>
+                    </article>
+
+                    <article class="work-card pending-card" aria-disabled="true">
+                        <p class="tag">Em breve</p>
+                        <span class="link-work disabled">Trabalho 3</span>
+                        <p class="description">
+                            Este projeto será adicionado conforme o avanço da disciplina.
+                        </p>
+                        <span class="status pending">● Pendente</span>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 • Desenvolvido por Lucas Oliveira</p>
+        </div>
+    </footer>
+    
+    <script src="/script/carrousel.js"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+/* Tablet */
+@media (max-width: 768px) {
+    .site-header nav ul {
+        gap: 4px;
+    }
+
+    .site-header nav a {
+        font-size: 0.8rem;
+        padding: 5px 6px;
+    }
+
+    .logo-text {
+        display: none;  /* evita overflow no header em telas pequenas */
+    }
+
+    .work-box-card {
+        flex-direction: column;
+    }
+
+    .work-card {
+        min-width: unset;
+    }
+
+    .tech-badges {
+        gap: 8px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .hero-badges {
+        gap: 8px;
+    }
+
+    .hero-badges .badge {
+        font-size: 0.72rem;
+        padding: 3px 10px;
+    }
+
+    .about .title-about,
+    .title-word {
+        font-size: 1.5rem;
+    }
+
+    .link-work {
+        font-size: 1rem;
+    }
+}

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Editor de cartões online — Trabalho 1 da disciplina de Interface Web.">
+
+    <title>Trabalho 1 — Editor de Cartões | Interface Web</title>
+
+    <!-- Font Awesome (mesmo do index) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- CSS compartilhado do site + CSS desta página -->
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/responsive.css">
+    <link rel="stylesheet" href="/css/stylesTrab1.css">
+</head>
+
+<body>
+
+    <!-- ── HEADER (idêntico ao index) ── -->
+    <header class="site-header">
+        <div class="container">
+            <a href="../index.html" class="logo">
+                <span class="logo-dot" aria-hidden="true"></span>
+                <i class="fa-solid fa-code" aria-hidden="true"></i>
+                <span class="logo-text">Interface Web</span>
+            </a>
+
+            <nav aria-label="Navegação principal">
+                <ul>
+                    <li><a href="../index.html">Apresentação</a></li>
+                    <!-- active corrigido: esta página É o Trabalho 1 -->
+                    <li><a href="#" class="active" aria-current="page">Trabalho 1</a></li>
+                    <li><a href="/pages/trabalho2.html">Trabalho 2</a></li>
+                    <li><a href="/pages/trabalho3.html">Trabalho 3</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ── BARRA DE TÍTULO DA PÁGINA ── -->
+    <div class="page-bar">
+        <div class="container">
+            <p class="page-bar-label">Trabalho 1 — Formulários &amp; JavaScript</p>
+            <!-- h1 único na página (o "Painel" virou título de seção com h2) -->
+            <h1 class="page-bar-title">Editor de Cartões Online</h1>
+            <p class="page-bar-desc">
+                Crie cartões personalizados em tempo real. Configure o painel ao lado
+                e veja as mudanças instantaneamente no cartão.
+            </p>
+        </div>
+    </div>
+
+    <!-- ── CONTEÚDO PRINCIPAL ── -->
+    <main id="main-content">
+        <div class="editor-layout container">
+
+            <!-- ════════════════════════════════
+                 PAINEL DE CONTROLE (esquerda)
+                 ════════════════════════════════ -->
+            <aside class="control-panel" aria-label="Painel de controle do cartão">
+                <h2 class="panel-title">
+                    <i class="fa-solid fa-sliders" aria-hidden="true"></i> Painel
+                </h2>
+
+                <!-- ── BLOCO: Fundo do cartão ── -->
+                <fieldset class="ctrl-group">
+                    <legend><i class="fa-solid fa-fill-drip" aria-hidden="true"></i> Fundo do cartão</legend>
+
+                    <label for="bgColor">Cor de fundo</label>
+                    <input type="color" id="bgColor" value="#ffffff">
+
+                    <label for="bgType">Tipo de fundo</label>
+                    <select id="bgType">
+                        <option value="solid">Cor sólida</option>
+                        <option value="gradient">Gradiente</option>
+                    </select>
+
+                    <div id="gradientOptions" class="hidden">
+                        <label for="bgColor2">Segunda cor do gradiente</label>
+                        <input type="color" id="bgColor2" value="#ffe4e1">
+
+                        <label for="gradientDir">Direção</label>
+                        <select id="gradientDir">
+                            <option value="to bottom">↓ Cima → Baixo</option>
+                            <option value="to right">→ Esquerda → Direita</option>
+                            <option value="to bottom right">↘ Diagonal</option>
+                            <option value="to top">↑ Baixo → Cima</option>
+                        </select>
+                    </div>
+                </fieldset>
+
+                <!-- ── BLOCO: Adicionar elemento de texto ── -->
+                <fieldset class="ctrl-group">
+                    <legend><i class="fa-solid fa-font" aria-hidden="true"></i> Adicionar texto</legend>
+
+                    <label for="inputTexto">Conteúdo do texto <span class="char-hint" id="charCount">0/80</span></label>
+                    <input type="text" id="inputTexto" placeholder="Ex.: Feliz Aniversário!" maxlength="80">
+
+                    <div class="row-2">
+                        <div class="field">
+                            <label for="textColor">Cor do texto</label>
+                            <input type="color" id="textColor" value="#1e1c1a">
+                        </div>
+                        <div class="field">
+                            <label for="fontSize">Tamanho <span id="fontSizeVal" class="range-val">20px</span></label>
+                            <input type="range" id="fontSize" min="10" max="60" value="20">
+                        </div>
+                    </div>
+
+                    <div class="row-2">
+                        <div class="field">
+                            <label for="fontFamily">Fonte</label>
+                            <select id="fontFamily">
+                                <option value="Poppins, sans-serif">Poppins</option>
+                                <option value="Georgia, serif">Georgia</option>
+                                <option value="'Courier New', monospace">Courier New</option>
+                                <option value="cursive">Cursiva</option>
+                                <option value="fantasy">Fantasy</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label for="textAlign">Alinhamento</label>
+                            <select id="textAlign">
+                                <option value="center">Centro</option>
+                                <option value="left">Esquerda</option>
+                                <option value="right">Direita</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="check-row">
+                        <label class="check-label">
+                            <input type="checkbox" id="boldCheck"> <strong>Negrito</strong>
+                        </label>
+                        <label class="check-label">
+                            <input type="checkbox" id="italicCheck"> <em>Itálico</em>
+                        </label>
+                    </div>
+
+                    <button class="btn-primary" id="adicionarButton">
+                        <i class="fa-solid fa-plus" aria-hidden="true"></i> Adicionar texto ao cartão
+                    </button>
+                </fieldset>
+
+                <!-- ── BLOCO: Adicionar imagem ── -->
+                <fieldset class="ctrl-group">
+                    <legend><i class="fa-solid fa-image" aria-hidden="true"></i> Adicionar imagem</legend>
+
+                    <label for="imgUrl">URL da imagem</label>
+                    <input type="url" id="imgUrl" placeholder="https://exemplo.com/foto.jpg">
+                    <p class="field-hint">Cole o endereço de uma imagem da internet.</p>
+
+                    <label for="imgWidth">Largura <span id="imgWidthVal" class="range-val">80%</span></label>
+                    <input type="range" id="imgWidth" min="20" max="100" value="80">
+
+                    <button class="btn-primary" id="addImageBtn">
+                        <i class="fa-solid fa-plus" aria-hidden="true"></i> Adicionar imagem ao cartão
+                    </button>
+                </fieldset>
+
+                <!-- ── BLOCO: Gerenciar elementos ── -->
+                <fieldset class="ctrl-group">
+                    <legend><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Gerenciar elementos</legend>
+
+                    <label for="escolhido">Número do elemento (1 = primeiro)</label>
+                    <input type="number" id="escolhido" min="1" value="1">
+
+                    <div class="field">
+                        <label for="fontSizeSelected">Tamanho da fonte <span id="fontSizeSelectedVal" class="range-val">—</span></label>
+                        <input type="range" id="fontSizeSelected" min="10" max="60" value="20" disabled>
+                    </div>
+
+                    <div class="field">
+                        <label for="textColorSelected">Cor do texto</label>
+                        <input type="color" id="textColorSelected" value="#1e1c1a" disabled>
+                    </div>
+
+                    <div class="btn-group">
+                        <button class="btn-secondary" id="selectBtn">
+                            <i class="fa-solid fa-arrow-pointer" aria-hidden="true"></i> Selecionar
+                        </button>
+                        <button class="btn-danger" id="removerButton">
+                            <i class="fa-solid fa-trash" aria-hidden="true"></i> Remover
+                        </button>
+                    </div>
+                </fieldset>
+
+                <!-- ── BLOCO: Borda do cartão ── -->
+                <fieldset class="ctrl-group">
+                    <legend><i class="fa-solid fa-border-all" aria-hidden="true"></i> Borda do cartão</legend>
+
+                    <div class="row-2">
+                        <div class="field">
+                            <label for="borderColor">Cor da borda</label>
+                            <input type="color" id="borderColor" value="#c74b1e">
+                        </div>
+                        <div class="field">
+                            <label for="borderWidth">Espessura <span id="borderWidthVal" class="range-val">0px</span></label>
+                            <input type="range" id="borderWidth" min="0" max="16" value="0">
+                        </div>
+                    </div>
+
+                    <label for="borderStyle">Estilo da borda</label>
+                    <select id="borderStyle">
+                        <option value="solid">Sólida</option>
+                        <option value="dashed">Tracejada</option>
+                        <option value="dotted">Pontilhada</option>
+                        <option value="double">Dupla</option>
+                    </select>
+                </fieldset>
+
+                <!-- ── BLOCO: Reset ── -->
+                <button class="btn-reset" id="resetBtn">
+                    <i class="fa-solid fa-rotate-left" aria-hidden="true"></i> Reiniciar cartão
+                </button>
+
+            </aside>
+
+            <!-- ════════════════════════════════
+                 PREVIEW DO CARTÃO (direita)
+                 ════════════════════════════════ -->
+            <section class="preview-col" aria-label="Visualização do cartão">
+                <h2 class="preview-label">
+                    <i class="fa-regular fa-eye" aria-hidden="true"></i> Visualização
+                </h2>
+
+                <div class="preview-wrap">
+                    <!-- O cartão em si -->
+                    <div id="card-canvas" role="img" aria-label="Cartão em construção">
+                        <!-- Elementos adicionados via JS aparecem aqui -->
+                    </div>
+                </div>
+
+                <!-- Contador de elementos -->
+                <p class="el-count" aria-live="polite">
+                    Elementos no cartão: <strong id="elCount">0</strong>
+                </p>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- ── FOOTER (idêntico ao index) ── -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 • Desenvolvido por Lucas Oliveira</p>
+        </div>
+    </footer>
+    
+    <script src="/script/card.js"></script>
+</body>
+</html>
