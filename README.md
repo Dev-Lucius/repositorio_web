@@ -30,11 +30,11 @@ O site funciona como um **registro progressivo** da evolução técnica ao longo
 
 
 ### Página de Apresentação
-<!-- Substitua pelo caminho real da sua screenshot -->
+
 ![Preview da página de apresentação](img/screenshots/Screenshot1.PNG)
 
 ### Trabalho 1 — Editor de Cartões Online
-<!-- Substitua pelo caminho real da sua screenshot ou GIF -->
+
 ![Preview do editor de cartões](img/screenshots/Screenshot4.PNG)
 
 
