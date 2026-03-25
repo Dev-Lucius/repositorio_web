@@ -90,6 +90,8 @@ fieldset.ctrl-group legend {
     display: flex;
     align-items: center;
     gap: 6px;
+    position: relative;
+    top: 12px;
 }
 
 /* ── Labels e inputs ─────────────────────────────────────────── */
