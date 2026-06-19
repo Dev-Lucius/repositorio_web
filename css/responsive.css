@@ -1,0 +1,80 @@
+/* RESPONSIVIDADE TRAB 1 */
+/* Tablet */
+@media (max-width: 768px) {
+    .site-header nav ul {
+        gap: 4px;
+    }
+
+    .site-header nav a {
+        font-size: 0.6rem;
+        padding: 6px 6px;
+    }
+
+    .logo-text {
+        display: none;  /* evita overflow no header em telas pequenas */
+    }
+
+    .work-box-card {
+        flex-direction: column;
+    }
+
+    .work-card {
+        min-width: unset;
+    }
+
+    .tech-badges {
+        gap: 8px;
+    }
+
+    .footer .container p {
+        font-size: 15px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .hero-badges {
+        gap: 8px;
+    }
+
+    .hero-badges .badge {
+        font-size: 0.72rem;
+        padding: 3px 10px;
+    }
+
+    .about .title-about,
+    .title-word {
+        font-size: 1.5rem;
+    }
+
+    .link-work {
+        font-size: 1rem;
+    }
+}
+
+
+/* RESPONSIVIDADE TRAB 2 */
+@media (max-width: 640px) {
+  .prova-header,
+  main {
+    width: min(92%, 800px);
+    margin-inline: auto;          
+  }
+ 
+  .prova-header__content {
+    display: flex;
+    padding-inline: clamp(1rem, 5vw, 2rem);
+    gap: .75rem;
+  }
+ 
+  .prova-header__icon {
+    --tamanho-icone: 48px;        
+    font-size: 1.3rem;
+  }
+
+  @media(min-width: 641){
+    .prova-header__icon{
+        font-size: 1.5rem;
+    }
+  }
+}

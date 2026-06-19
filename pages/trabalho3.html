@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/stylesTrab3.css">
+    <title>Trabalho 3 - Formulário Integrado a uma API</title>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a href="../index.html" class="logo" aria-label="Interface Web - Ir para a página inicial">
+                <span class="logo-dot" aria-hidden="true"></span>
+                <i class="fa-solid fa-code" aria-hidden="true"></i>
+                <span class="logo-text">Interface Web</span>
+            </a>
+
+            <nav aria-label="Navegação principal">
+                <ul>
+                    <li><a href="../index.html">Apresentação</a></li>
+                    <li><a href="../pages/trabalho1.html">Trabalho 1</a></li>
+                    <li><a href="../pages/trabalho2.html">Trabalho 2</a></li>
+                    <li><a href="#" class="active" aria-current="page">Trabalho 3</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="api-explicacao">
+            <h2> <i class="fa-solid fa-dollar-sign"></i> Conversor de Moedas</h2>
+            <p>Esta página conecta-se diretamente com a API pública <strong>AwesomeAPI</strong></p>
+        </section>
+
+        <section class="api-container">
+            <form id="form-conversao">
+                <div class="form-group">
+                    <label for="moeda">
+                        <i class="fa-solid fa-coins"></i> Selecione a Moeda que Deseja Consultar
+                    </label>
+                    <select id="moeda" required>
+                        <option value="" disabled selected>Escolha uma Opção...</option>
+                        <option value="USD">Dólar Americano (USD)</option>
+                        <option value="EUR">Euro (EUR)</option>
+                        <option value="BTC">Bitcoin (BTC)</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-enviar">Consultar Cotação</button>
+            </form>
+
+            <div id="resultado-api" class="resultado-box hidden">
+                <h3>Resultado de Consulta</h3>
+                <p id="resposta-texto"></p>
+            </div>
+        </section>
+    </main>
+
+    <main id="main-promises">
+        <section class="api-explicacao">
+            <h2>Painel Econômico Global</h2>
+            <p>Esta página utiliza o método avançado <code>Promise.all</code> do JavaScript. Isso significa que o seu
+                navegador faz <strong>três requisições simultâneas e paralelas</strong> para servidores externos. A
+                página só exibe o conteúdo após todas as respostas retornarem com sucesso, otimizando o tempo de
+                carregamento.</p>
+            <button id="btn-carregar-painel" class="btn-enviar">Carregar Dados em Paralelo</button>
+        </section>
+
+        <section id="painel-cards" class="painel-grid"></section>
+    </main>
+
+    <script type="module" src="../script/api.js" defer></script>
+</body>
+
+</html>

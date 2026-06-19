@@ -1,0 +1,82 @@
+
+/* Variáveis */
+:root {
+    --cor-primaria: #b43900e7;
+    --cor-primaria-dark: #0552aa;
+    --cor-sucesso: #22c55e;
+    --cor-dos-textos: #1a1a2e;
+    --cor-texto-suave: #ffffff99;
+    --cor-fundo-pagina: #f4f6fb;
+    --cor-borda: #0a0a0a;
+    --fonte-base: 'Poppins', sans-serif;
+    --sombra-card: 0 4px 24px rgba(8, 103, 212, 0.12);
+    --cor-icon: rgba(34, 197, 94, 0.10)
+}
+
+body {
+    font-family: var(--fonte-base);
+    background-color: var(--cor-fundo-pagina);
+    color: var(--cor-dos-textos);
+}
+
+
+/* Cabeçalho da Prova */
+.prova-header {
+    width: min(75%, 960px);
+    /* Nunca Ultrapassa 960 */
+    margin-inline: auto;
+    margin-top: 30px;
+    background: var(--cor-primaria);
+    border: 1px solid var(--cor-borda);
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    box-shadow: var(--sombra-card);
+    padding-block: 1.75rem;
+}
+
+/* Linha Interna do Cabeçalho */
+.prova-header .prova-header__content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-weight: 700;
+    padding-inline: 1.75rem;
+}
+
+/* Ícone Circular */
+.prova-header .prova-header__icon {
+    width: 64px;
+    height: 64px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--cor-sucesso);
+    border-radius: 50%;
+    color: var(--cor-sucesso);
+    font-size: 1.75;
+    background: var(--cor-icon);
+}
+
+/* Textos do Cabeçalho */
+.prova-header .prova-header__text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.prova-header .prova-header__text h1 {
+    /* simplificando a responsividade com clamp */
+    font-size: clamp(1.2rem, 3vw, 1.6rem);
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.2;
+}
+
+.prova-header .prova-header__subtitulo {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--cor-texto-suave);
+    letter-spacing: 0.005rem;
+    text-transform: uppercase;
+}
