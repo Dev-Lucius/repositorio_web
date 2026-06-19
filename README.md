@@ -26,7 +26,7 @@ O site funciona como um **registro progressivo** da evolução técnica ao longo
 
 ## 🚀 Demonstração
 
-🔗 **[Acesse o projeto ao vivo](https://SEU-LINK-AQUI)**
+🔗 **[Acesse o projeto ao vivo](https://dev-lucius.github.io/repositorio_web/index.html)**
 
 
 ### Página de Apresentação
